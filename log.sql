@@ -14,7 +14,7 @@ SELECT transcript FROM interviews WHERE month = 7 AND day = 28 AND year = 2021;
 -- thief withdrew money from ATM on Leggett Street morning of the crime
 -- As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket.
 
--- find all license plates of cars at the bakery on 7/28 within 10 min of 10:15
+-- find all license plates of cars leaving the bakery on 7/28 within 10 min of 10:15
 SELECT license_plate FROM bakery_security_logs WHERE month = 7 AND day = 28 AND year = 2021 AND hour = 10 AND minute >= 15 AND minute <= 25 AND activity = 'exit';
 
 -- find all phonecalls that lasted less than 1 minute
@@ -23,7 +23,7 @@ SELECT caller FROM phone_calls WHERE month = 7 AND day = 28 AND year = 2021 AND 
 -- find all back accounts from Leggett Street
 SELECT account_number FROM atm_transactions WHERE month = 7 AND day = 28 AND year = 2021 AND atm_location = 'Leggett Street';
 
--- find earliest flight out of fiftyville
+-- find earliest flight out of fiftyville the next day
 SELECT id FROM flights WHERE origin_airport_id = 8 AND year = 2021 AND month = 7 AND day = 29 ORDER BY hour, minute ASC LIMIT 1; 
 
 -- find the perp!
